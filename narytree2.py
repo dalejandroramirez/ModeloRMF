@@ -28,11 +28,20 @@ def ARI2(d,h,p):
             j=j+1
         if len(s)==0:
             return(0)
-
-
 """
 Comentarios
 1- dado que no se ha llegado hasta el nivel h deseado entonces se generan
 los nuevos hijos del nodo que se quito
 2- se agregan al deque los nodos que si fueron percolados
 """
+
+
+###Sacaremos el promedio de percolaciones en una poblacion de tamaño repeticiones
+#con un probabilidad de percolacion de pc
+# altura h y numero de hijos d
+
+def EsperadoBin(d,h,rep,pc):
+    cont=0
+    for i in np.linspace(0,1,rep):
+       cont=cont+ARI2(d,h,pc)
+    return(cont/rep)
