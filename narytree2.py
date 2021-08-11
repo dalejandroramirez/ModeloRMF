@@ -45,3 +45,32 @@ def EsperadoBin(d,h,rep,pc):
     for i in np.linspace(0,1,rep):
        cont=cont+ARI2(d,h,pc)
     return(cont/rep)
+
+
+##esta funcion me evalua los posibles valores de pc en El binomial model
+#da un valor minimo pc en (0,e),el cual es el valor minimo de percolacion
+#e : me va a decir que tan grande debe ser el porcentaje de percolaciones
+#para considerarlo cero
+
+
+def GrafBin(d,h,rep,e):
+    Y=[]
+    j=0
+    for pc in np.linspace(0,1,rep):
+        Y.append(EsperadoBin(d,h,rep,pc))
+    while Y[j]<e:
+        j=j+1
+    Cmin=np.linspace(0,1,rep)[j]
+
+    plt.title('Binomial Model')
+    plt.suptitle("nivel " +str(h)+" con " + str(rep) + " repeticiones")
+    plt.xlabel(r'P_c')
+    plt.ylabel('E(Percolacion)')
+    plt.plot(np.linspace(0,1,rep),Y,'-',label=("Cmin=",round(Cmin,4)))
+    plt.axvline(x=Cmin,ymin=-3,ymax=3,ls="dotted")
+    plt.legend()
+    plt.show()
+    return(Cmin)
+
+
+print(GrafBin(2,100,100,0.001))
