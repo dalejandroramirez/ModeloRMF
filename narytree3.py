@@ -4,6 +4,12 @@ Created on Thu Feb 18 10:19:26 2021
 
 @author: digin
 """
+
+"""
+Esta funcion es igual al narytree2 solamente que es con una
+
+distribucion uniforme
+"""
 import numpy as np
 from collections import deque
 import matplotlib.pyplot as plt
@@ -30,9 +36,6 @@ def ARI3(d,h,p):
             return(0)
         #print(s)
 #print(ARI3(2,10,0.5))
-
-
-
 
 def EsperadoAcces(d,h,rep,pc):
     cont=0

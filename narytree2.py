@@ -1,14 +1,14 @@
 
 
 
-## este algoritmo me dice si existe percolacion o no, es decir,
+""" este algoritmo me dice si existe percolacion o no, es decir,
 #retorna una respuesta booleana
 
 #si en el deque existe un individuo con un nivel h entonces returna 1
 #de resto sigue intentando percolar y el algoritmo hace una busqueda
 #profunda lo que hace que el algitmo sea mas eficiente
 
-
+"""
 import numpy as np
 from collections import deque
 import matplotlib.pyplot as plt
