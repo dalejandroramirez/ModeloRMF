@@ -12,15 +12,18 @@ import pandas as pd
 import numpy as np
 from collections import deque
 import matplotlib.pyplot as plt
-def RMF(d,h):
+
+
+
+def Porcentaje_accesibles_nary_RMF_c(d,h):
     class nodo:
         def __init__(self,nivel,c):
             self.nivel=nivel
-            self.etiqueta=np-random.uniform(0,1,1)[0]
+            self.etiqueta=np.random.uniform(0,1,1)[0]
             self.valorC=c
     s=deque([nodo(0,0)])
     c=0
-    cfin=1
+    Cfin=1
     while len(s)!=0:
         nd=s.pop()
         hijos=[nodo(nd.nivel+1,1) for i in range(d)]
@@ -29,8 +32,8 @@ def RMF(d,h):
 #adelante vamos a modificarla
 #"""
         for j in range(d):
-            if nd.valorC<round(nd.etiqueta-hijo[j].etiqueta,3):
-                hijos[j].valorC=round(nd.etiqueta-hijos[j].etiqueta,3)
+            if nd.valorC<round(nd.etiqueta-hijos[j].etiqueta,3):
+                hijos[j].valorC=round(nd.etiqueta - hijos[j].etiqueta,3)
 #"""si no se puede seguir percolando con la etiqueta del papa, entonces
 #se actializa por la diferencia que se necesita """
             elif nd.valorC>nd.etiqueta-hijos[j].etiqueta:
@@ -41,3 +44,7 @@ def RMF(d,h):
                     continue
                 s.append(hijos[j])
     return(Cfin)
+print(Porcentaje_accesibles_nary_RMF_c(2,10))
+#se creara un archivo excel el cual va almacenar
+#el valor c donde se realizan n veces el proceso RMF
+#luego se ordena
