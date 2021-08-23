@@ -9,19 +9,22 @@ import numpy as np
 from collections import deque   ## este deque funciona como una cola
 import matplotlib.pyplot as plt
 
-d= int(input("ingrese el numero de hijos que tendrá cada nivel: "))
 
-h =int(input("ingrese la altura maxima que tendra el arbol: "))
-
-p= float(input("Ingrese la probabilidad con la que un vertice es percolado: "))
-
-def ConAryBer(d,h,p):
+def ConAryBer():
+    """Se quiere una lista de tamaño h+1 en la que se mostrara cuantos nodos
+        nodos sobreviven en cada nivel.
+    """
     ###Este algoritmo devuelve un vector que muestra cuantos caminos sobrevive en cada
     """nivel en un proceso beroullo
     d : es la cantidad de hijos que tiene cada proceso
     h : es la altura que tiene el arbol
     p : es la probabilidad de percolación
     """
+    d= int(input("ingrese el numero de hijos que tendrá cada nivel: "))
+
+    h =int(input("ingrese la altura maxima que tendra el arbol: "))
+
+    p= float(input("Ingrese la probabilidad con la que un vertice es percolado: "))
     A=np.zeros(h)
     s=deque([[0,list(np.random.binomial(1,p,1))]])
     ## inicialmente estamos en el nivel 0 puede que percole o no
@@ -37,5 +40,3 @@ def ConAryBer(d,h,p):
                     s.append([hijos[0],hijos[1]])
                 j+=1
     return(A)
-
-print(ConAryBer(d,h,p))
