@@ -4,7 +4,7 @@ Created on Sat Sep  4 09:53:09 2021
 
 @author: digin
 """
-
+import time
 import numpy as np
 from collections import deque
 
@@ -29,6 +29,7 @@ def Porcentaje_accesibles_nary_RMF_c(d,h):
         Cfin=1
         while len(s)!=0:
             nd=s.pop()
+
             if nd.valorC>=Cfin:
                 continue
             hijos=[nodo(nd.nivel+1,nd.valorC) for i in range(d)]
@@ -42,18 +43,23 @@ def Porcentaje_accesibles_nary_RMF_c(d,h):
                     s.append(hijos[j])
         return(Cfin)
 
+
+
 def Ordenar(d,h,N):
     X=[Porcentaje_accesibles_nary_RMF_c(d, h) for i in range(0,N)]
     X.sort()
     return(X)
 
 def Lista_valoresC(d,h,N):
-    file =open("ValoresC"+str(h)+'.txt',"w")
+    hora=time.strftime("%H_%M_%S")
+    file =open("ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+".txt","w")
     X=Ordenar(d,h,N)
     for i in range(0,N):
         file.write(str(X[i])+"\n")
     file.close()
     return(0)
 
-
-print(Lista_valoresC(2,250,1000))
+if __name__=='__main__':
+    '''aqui ejecutare los programas'''
+    print(__name__)
+    print(Porcentaje_accesibles_nary_RMF_c(2,10))

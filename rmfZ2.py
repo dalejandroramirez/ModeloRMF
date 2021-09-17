@@ -33,19 +33,26 @@ def RMF_in_Z2mas(d,h):
             hijorigth=nodo(ubicacionup,nd.ValorC,visitados[rigth])
         else :
             hijorigth=nodo(ubicacionup,nd.ValorC,np.random.uniform(0,1,1)[0])
-        if nd.valorC<round(nd.etiqueta-hijoup.etiqueta,3):
-                    hijoup.valorC=round(nd.etiqueta - hijos[j].etiqueta,3)
+        if nd.ValorC<round(nd.etiqueta-hijoup.etiqueta,3):
+            hijoup.ValorC=round(nd.etiqueta - hijoup.etiqueta,3)
         else:
             hijoup.ValorC=round(hijoup.ValorC,3)
-        if nd.valorC<round(nd.etiqueta-hijorigth.etiqueta,3):
-                    hijorigth.valorC=round(nd.etiqueta - hijorigth.etiqueta,3)
+        if nd.ValorC<round(nd.etiqueta-hijorigth.etiqueta,3):
+                    hijorigth.ValorC=round(nd.etiqueta - hijorigth.etiqueta,3)
         else:
             hijorigth.ValorC=round(hijorigth.ValorC,3)
-            
-            
+        if hijoup.ValorC<Cfin:
+            if (hijoup.ubicacion[0]+hijoup.ubicacion[1]==h) or (hijorigth.ubicacion[0]+hijorigth.ubicacion[1]==h):
+                Cfin=min(hijoup.ValorC,Cfin,hijorigth.ValorC)
+                continue
+            s.append(hijoup)
+            s.append(hijorigth)
+    return(Cfin)
+        
+        
             
         
-RMF_in_Z2mas(2, 10)
+print(RMF_in_Z2mas(2, 100))
     
     
      

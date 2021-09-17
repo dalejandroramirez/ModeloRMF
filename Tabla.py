@@ -28,4 +28,4 @@ def Exportar_excel_Valor_C(n=None,d=None,h=None):
     #df.to_excel('/media/daniel/00C240BEC240B9A4/Users/digin/Dropbox/Mi PC (DESKTOP-F432S4K)/Documents/Maestria/RMF_archivosexcel/ValorC'+str(h)+'.xlsx','a',index=False,header=False)
     
 
-print(Exportar_excel_Valor_C(100,2,500))
+print(Exportar_excel_Valor_C(1000,2,2000))
