@@ -24,7 +24,6 @@ class nodo:
     def mostrar(self):
         print('altura',self.altura,'valor de c',self.valorc,'etiqueta', self.etiqueta,)
 
-
 class My_Heap:
     def __init__(self):
         self.datos=[]
@@ -119,15 +118,9 @@ def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
         a percolar y este c minimo se le hace un redondeo de 3 cifras
         significativas para disminuir el tiempo de ejecucion """
 
-
-
-
         s=My_Heap()
         papa=nodo(0,0)
         s.agregar(papa)
-
-        A=[round(papa.etiqueta,3)]
-        B=[]
         canta=1
         Cfin=1
         while canta>0:
@@ -138,7 +131,6 @@ def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
                 continue
             hijos=nd.proliferar(d)
             for j in range(d):
-                B.append(hijos[j].etiqueta)
                 hijos[j].valorc=nd.valorc
                 if nd.valorc<round(nd.etiqueta-hijos[j].etiqueta,3):
                     hijos[j].valorc=round(nd.etiqueta - hijos[j].etiqueta,3)
@@ -148,20 +140,14 @@ def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
                         continue
                     s.agregar(hijos[j])
                     canta=canta+1
-        print(B)
         return(Cfin)
-if __name__=='__main__':
-    print(Porcentaje_accesibles_nary_RMF_c_Heap(2,3))
 
 def Ordenar_Heap(d,h,N):
     X=[Porcentaje_accesibles_nary_RMF_c_Heap(d, h) for i in range(0,N)]
     X.sort()
     return(X)
-def Lista_valoresC_heap(d,h,N):
-    hora=time.strftime("%H_%M_%S")
-    file =open("ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+"Heapmin"+".txt","w")
-    X=Ordenar_Heap(d,h,N)
-    for i in range(0,N):
-        file.write(str(X[i])+"\n")
-    file.close()
-    return(0)
+
+
+if __name__=='__main__':
+    print("El valor C minimo de percolacion es =", end=' ')
+    print(Porcentaje_accesibles_nary_RMF_c_Heap(2,3))

@@ -50,16 +50,8 @@ def Ordenar(d,h,N):
     X.sort()
     return(X)
 
-def Lista_valoresC(d,h,N):
-    hora=time.strftime("%H_%M_%S")
-    file =open("ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+".txt","w")
-    X=Ordenar(d,h,N)
-    for i in range(0,N):
-        file.write(str(X[i])+"\n")
-    file.close()
-    return(0)
 
 if __name__=='__main__':
     '''aqui ejecutare los programas'''
-    print(__name__)
+    print("El valor C minimo de percolacion es =", end=' ')
     print(Porcentaje_accesibles_nary_RMF_c(2,10))

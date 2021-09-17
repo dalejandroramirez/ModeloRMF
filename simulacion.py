@@ -14,8 +14,8 @@ import pandas as pd
 def Grafica_Acumulado(nombre_archivo,h):
     '''Se realiza una grafica de ValoresC vs P(percolacion), esta probabilidad de percolacion
        se calcula haciendo el aculumalado de las frecuencias de percolacion con cada valor de C
-    '''        
-    df = pd.read_csv(str(nombre_archivo))
+    '''
+    df = pd.read_csv('ValoresC/'+str(nombre_archivo))
     df=pd.DataFrame(df)
     (unique, counts) = np.unique(df, return_counts=True) ##retorna un array con los numeros diferentes y sus repeticiones
     N=len(df)
@@ -34,10 +34,7 @@ def Grafica_Acumulado(nombre_archivo,h):
     plt.legend()
     plt.show()
     return(0)
-
-Grafica_Acumulado('ValoresCh1000d2.txt',1000)
-Grafica_Acumulado('ValoresCh500d2.txt',500)
-Grafica_Acumulado('ValoresCh700d2.txt',700)
-#Grafica_Acumulado('ValoresC1000.txt')
-#Grafica_Acumulado('ValoresC100.txt')
-
+if __name__=='__main__':
+    Grafica_Acumulado('ValoresCh1000d2.txt',1000)
+    Grafica_Acumulado('ValoresCh500d2.txt',500)
+    Grafica_Acumulado('ValoresCh700d2.txt',700)
