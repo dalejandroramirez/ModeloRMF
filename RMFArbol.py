@@ -43,14 +43,10 @@ def Porcentaje_accesibles_nary_RMF_c(d,h):
                     s.append(hijos[j])
         return(Cfin)
 
-
-
 def Ordenar(d,h,N):
     X=[Porcentaje_accesibles_nary_RMF_c(d, h) for i in range(0,N)]
     X.sort()
     return(X)
-
-
 if __name__=='__main__':
     '''aqui ejecutare los programas'''
     print("El valor C minimo de percolacion es =", end=' ')

@@ -11,6 +11,7 @@ import pandas as pd
 #plt.plot(unique,counts)
 #'ValoresC1000.txt'
 
+##   capturar nombres en un txt
 def Grafica_Acumulado(nombre_archivo,h):
     '''Se realiza una grafica de ValoresC vs P(percolacion), esta probabilidad de percolacion
        se calcula haciendo el aculumalado de las frecuencias de percolacion con cada valor de C
