@@ -147,7 +147,6 @@ def Ordenar_Heap(d,h,N):
     X.sort()
     return(X)
 
-
-if __name__=='__main__':
-    print("El valor C minimo de percolacion es =", end=' ')
-    print(Porcentaje_accesibles_nary_RMF_c_Heap(2,3))
+#if __name__=='__main__':
+#    print("El valor C minimo de percolacion es =", end=' ')
+#    print(Porcentaje_accesibles_nary_RMF_c_Heap(2,3))

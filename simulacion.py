@@ -36,6 +36,6 @@ def Grafica_Acumulado(nombre_archivo,h):
     plt.show()
     return(0)
 if __name__=='__main__':
-    Grafica_Acumulado('ValoresCh1000d2.txt',1000)
-    Grafica_Acumulado('ValoresCh500d2.txt',500)
-    Grafica_Acumulado('ValoresCh700d2.txt',700)
+    Grafica_Acumulado('ValoresC100d2concte.txt',1000)
+    #Grafica_Acumulado('ValoresCh500d2.txt',500)
+    #Grafica_Acumulado('ValoresCh700d2.txt',700)

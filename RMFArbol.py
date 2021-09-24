@@ -47,7 +47,9 @@ def Ordenar(d,h,N):
     X=[Porcentaje_accesibles_nary_RMF_c(d, h) for i in range(0,N)]
     X.sort()
     return(X)
-if __name__=='__main__':
-    '''aqui ejecutare los programas'''
-    print("El valor C minimo de percolacion es =", end=' ')
-    print(Porcentaje_accesibles_nary_RMF_c(2,10))
+
+
+#if __name__=='__main__':
+#    '''aqui ejecutare los programas'''
+#    print("El valor C minimo de percolacion es =", end=' ')
+#    print(Porcentaje_accesibles_nary_RMF_c(2,10))
