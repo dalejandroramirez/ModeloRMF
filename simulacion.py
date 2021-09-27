@@ -16,8 +16,9 @@ def Grafica_Acumulado(nombre_archivo,h):
     '''Se realiza una grafica de ValoresC vs P(percolacion), esta probabilidad de percolacion
        se calcula haciendo el aculumalado de las frecuencias de percolacion con cada valor de C
     '''
-    df = pd.read_csv('ValoresC/'+str(nombre_archivo))
+    df = pd.read_csv('ValoresCheap/'+str(nombre_archivo))
     df=pd.DataFrame(df)
+    df=df.sort_index(axis=0, ascending=True)
     (unique, counts) = np.unique(df, return_counts=True) ##retorna un array con los numeros diferentes y sus repeticiones
     N=len(df)
     n=len(unique[0:100])
@@ -31,11 +32,16 @@ def Grafica_Acumulado(nombre_archivo,h):
     y=np.array(acumulado)/N
     unique=np.concatenate([[0],unique])
     y=np.concatenate([[0],y])
-    plt.plot(unique[0:100],y[0:100],label=str(h))
+    plt.plot(unique[0:100],y[0:100],label="Altura {}".format(h))
+    plt.xlabel('Valor C critico')
+    plt.ylabel('Probabilidad Percolacio')
+    plt.title("RMF Models")
     plt.legend()
     plt.show()
     return(0)
+
 if __name__=='__main__':
-    Grafica_Acumulado('ValoresC100d2concte.txt',1000)
-    #Grafica_Acumulado('ValoresCh500d2.txt',500)
+    Grafica_Acumulado('ValoresC100d2concte.txt',100)
+    Grafica_Acumulado('ValoresC1000d2concte.txt',1000)
+    #Grafica_Acumulado('ValoresC_h_10000_d_2_hora_22_06_57Heapmin.txt',500)
     #Grafica_Acumulado('ValoresCh700d2.txt',700)
