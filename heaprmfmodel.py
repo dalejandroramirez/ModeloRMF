@@ -14,8 +14,8 @@ class nodo:
         nodo.valorc=c
     def proliferar(self,d):
         import random
-        np.random.seed(0)
         hijos=[nodo(0,0) for i in range(d)]
+
         for nd_hijo in hijos:
             nd_hijo.etiqueta=random.random()
             nd_hijo.valor_c=0
@@ -141,6 +141,7 @@ def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
                     s.agregar(hijos[j])
                     canta=canta+1
         return(Cfin)
+
 
 def Ordenar_Heap(d,h,N):
     X=[Porcentaje_accesibles_nary_RMF_c_Heap(d, h) for i in range(0,N)]
