@@ -6,4 +6,3 @@ h=int(input("Ingrese la altura: "))
 
 for i in range(0,m):
     Crearlistas.Lista_valoresC_heap(d,h,N)
-    
