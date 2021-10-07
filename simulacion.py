@@ -12,7 +12,7 @@ import pandas as pd
 #'ValoresC1000.txt'
 
 ##   capturar nombres en un txt
-def Grafica_Acumulado(nombre_archivo,h):
+def Grafica_Acumulado(nombre_archivo,h,color):
     '''Se realiza una grafica de ValoresC vs P(percolacion), esta probabilidad de percolacion
        se calcula haciendo el aculumalado de las frecuencias de percolacion con cada valor de C
     '''
@@ -32,7 +32,7 @@ def Grafica_Acumulado(nombre_archivo,h):
     y=np.array(acumulado)/N
     unique=np.concatenate([[0],unique])
     y=np.concatenate([[0],y])
-    plt.plot(unique[0:60],y[0:60],"-",label="Altura {}".format(h))
+    plt.plot(unique[0:60],y[0:60],"-",label="Altura {}".format(h),color=color)
     plt.xlabel('Valor C critico')
     plt.ylabel('Probabilidad Percolacio')
     plt.title("RMF Models")
@@ -42,7 +42,7 @@ def Grafica_Acumulado(nombre_archivo,h):
 
 
 if __name__=='__main__':
-    Grafica_Acumulado('ValoresC100d2concte.txt',100)
-    Grafica_Acumulado('ValoresC1000d2concte.txt',1000)
-    Grafica_Acumulado('ValoresC10000d2concte.txt',10000)
+    Grafica_Acumulado('ValoresC100d2concte.txt',100,"r")
+    Grafica_Acumulado('ValoresC1000d2concte.txt',1000,"b")
+    Grafica_Acumulado('ValoresC10000d2concte.txt',10000,"g")
     plt.show()
