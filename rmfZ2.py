@@ -8,13 +8,17 @@ import random
 from collections import deque
 import numpy as np
 class nodo():
+    
     def __init__(self,ubicacion,c,etiqueta):
         self.ubicacion=ubicacion
         self.ValorC=c
         self.etiqueta=etiqueta
+        self.proliferar=False
 
 def RMF_in_Z2mas(d,h):
     visitados={}
+    valoresc={(0,0):0}
+    cont=1
     papa=nodo([0,0],0,np.random.uniform(0,1,1)[0])
     s=deque([papa])
     Cfin=1
@@ -46,18 +50,19 @@ def RMF_in_Z2mas(d,h):
         else:
             hijorigth.ValorC=round(hijorigth.ValorC,3)
         if hijoup.ValorC<Cfin:
-            if (hijoup.ubicacion[0]+hijoup.ubicacion[1]==h) or (hijorigth.ubicacion[0]+hijorigth.ubicacion[1]==h):
+            if (hijoup.ubicacion[0]+hijoup.ubicacion[1]==h):
                 Cfin=min(hijoup.ValorC,Cfin,hijorigth.ValorC)
                 continue
             s.append(hijoup)
             s.append(hijorigth)
+            cont+=2
+
+            print(len(s),cont)
     return(len(visitados))
     #return(Cfin)
         
 if __name__=="__main__":
-    for i in range(30,50):
-        print(RMF_in_Z2mas(2,i))
-        #print(RMF_in_Z2mas(2,i))
+    print(RMF_in_Z2mas(2,1000))
 
     
 
@@ -69,8 +74,6 @@ def e(i,d):
     ei=np.zeros(d)
     ei[i]=1
     return(ei)
-
-
 
 
 def RMF_in_Zdmas(d,h):
