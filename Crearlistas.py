@@ -1,5 +1,6 @@
 import heaprmfmodel as heapRMF
 import RMFArbol
+import Z2alt
 import time
 
 def Lista_valoresC_heap(d,h,N):
@@ -22,6 +23,16 @@ def Lista_valoresC(d,h,N):
    #file =open("ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+".txt","w")
     file =open("ValoresCheap/ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+"Deque"+".txt","w")
     X=RMFArbol.Ordenar(d,h,N)
+    for i in range(0,N):
+        file.write(str(X[i])+"\n")
+    file.close()
+    return(0)
+def Lista_valoresC_z2alt(h,N):
+    '''Esta funcion crea la lista de los valores de C minimos
+    necesarios para percolar en z2alt'''
+    hora=time.strftime("%H_%M_%S")
+    file =open("ValoresC_z2alt/Altura"+str(h)+"/ValoresC_h_"+str(h)+"_hora_"+str(hora)+"z2alt"+".txt","w")
+    X=Z2alt.Ordenar_z2alt(h,N)
     for i in range(0,N):
         file.write(str(X[i])+"\n")
     file.close()

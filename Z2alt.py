@@ -37,6 +37,12 @@ def Z2alt(h):
 
     return(Cfin)
             
+
+def Ordenar_z2alt(h,N):
+    X=[Z2alt(h) for i in range(0,N)]
+    X.sort()
+    return(X)
+
         
 
 Z2alt(10)
