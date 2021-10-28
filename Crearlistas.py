@@ -27,11 +27,12 @@ def Lista_valoresC(d,h,N):
         file.write(str(X[i])+"\n")
     file.close()
     return(0)
-def Lista_valoresC_z2alt(h,N):
+
+def Lista_valoresC_L2(h,N):
     '''Esta funcion crea la lista de los valores de C minimos
-    necesarios para percolar en z2alt'''
+    necesarios para percolar en L2'''
     hora=time.strftime("%H_%M_%S")
-    file =open("ValoresC_z2alt/Altura"+str(h)+"/ValoresC_h_"+str(h)+"_hora_"+str(hora)+"z2alt"+".txt","w")
+    file =open("ValoresC_L2/Altura"+str(h)+"/ValoresC_h_"+str(h)+"_hora_"+str(hora)+"L2"+".txt","w")
     X=Z2alt.Ordenar_z2alt(h,N)
     for i in range(0,N):
         file.write(str(X[i])+"\n")

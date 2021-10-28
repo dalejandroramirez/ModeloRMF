@@ -33,7 +33,7 @@ def Grafica_Acumulado(nombre_archivo,h,color):
     y=np.array(acumulado)/N
     unique=np.concatenate([[0],unique])
     y=np.concatenate([[0],y])
-    plt.plot(unique[0:17],y[0:17],"-",label="Altura {}".format(h),color=color)
+    plt.plot(unique[0:40],y[0:40],"-",label="Altura {}".format(h),color=color)
     plt.xlabel('Valor C critico')
     plt.ylabel('Probabilidad Percolacio')
     plt.title("RMF Models")
@@ -46,5 +46,6 @@ if __name__=='__main__':
     #Grafica_Acumulado('ValoresC100d2concte.txt',100,"r")
     #Grafica_Acumulado('ValoresC1000d2concte.txt',1000,"b")
     #Grafica_Acumulado('ValoresC10000d2concte.txt',10000,"g")
-    Grafica_Acumulado('ValoresC_z2alt/Altura100/ValoresC_h_100_hora_16_22_51z2alt.txt',100,"b")
+    Grafica_Acumulado('ValoresC_z2alt/Altura100/ValoresC_h_100_hora_10_58_45z2alt.txt',100,"b")
+
     plt.show()

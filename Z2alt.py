@@ -5,12 +5,12 @@ import random
 
 def valorc(nd,etiqueta_hijo):
     """nd es un diccionario con key su ubicacion y argumento (valorc, Etiqueta)"""
-    if nd[1]<etiqueta_hijo:
+    if nd[1]<etiqueta_hijo+nd[0]:
         return(nd[0])
     else: 
         return(nd[1]-etiqueta_hijo)
 
-def Z2alt(h):
+def L2(h):
     Cfin=1
     h_actual=0
     Papa={(0,0):(0,random.uniform(0,1))}
@@ -38,13 +38,13 @@ def Z2alt(h):
     return(Cfin)
             
 
-def Ordenar_z2alt(h,N):
-    X=[Z2alt(h) for i in range(0,N)]
+def Ordenar_L2(h,N):
+    X=[L2(h) for i in range(0,N)]
     X.sort()
     return(X)
 
+
         
 
-Z2alt(10)
 
 
