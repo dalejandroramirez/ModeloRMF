@@ -22,7 +22,7 @@ def Grafica_Acumulado(nombre_archivo,h,color):
     df=df.sort_index(axis=0, ascending=True)
     (unique, counts) = np.unique(df, return_counts=True) ##retorna un array con los numeros diferentes y sus repeticiones
     N=len(df)
-    n=len(unique[0:100])
+    n=len(unique)
     j=1
     acum=0
     acumulado=[0]*(n+1)
@@ -32,8 +32,8 @@ def Grafica_Acumulado(nombre_archivo,h,color):
         j=j+1
     y=np.array(acumulado)/N
     unique=np.concatenate([[0],unique])
-    y=np.concatenate([[0],y])
-    plt.plot(unique[0:40],y[0:40],"-",label="Altura {}".format(h),color=color)
+    #y=np.concatenate([[0],y])
+    plt.plot(unique,y,"-",label="Altura {}".format(h),color=color)
     plt.xlabel('Valor C critico')
     plt.ylabel('Probabilidad Percolacio')
     plt.title("RMF Models")
@@ -43,9 +43,10 @@ def Grafica_Acumulado(nombre_archivo,h,color):
 
 
 if __name__=='__main__':
-    #Grafica_Acumulado('ValoresC100d2concte.txt',100,"r")
-    #Grafica_Acumulado('ValoresC1000d2concte.txt',1000,"b")
-    #Grafica_Acumulado('ValoresC10000d2concte.txt',10000,"g")
-    Grafica_Acumulado('ValoresC_z2alt/Altura100/ValoresC_h_100_hora_10_58_45z2alt.txt',100,"b")
+    Grafica_Acumulado('ValoresCheap/ValoresC10000d2concte.txt',"10000 heap","g")
+    Grafica_Acumulado('ValoresCheap/ValoresC100d2concte.txt',"100 heap","b")
+    Grafica_Acumulado('ValoresCheap/ValoresC1000d2concte.txt',"1000 heap","g")
+    Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h1000concte.txt',1000,"r")
+    Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h100concte.txt',100,"b")
 
     plt.show()

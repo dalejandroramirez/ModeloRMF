@@ -33,7 +33,7 @@ def Lista_valoresC_L2(h,N):
     necesarios para percolar en L2'''
     hora=time.strftime("%H_%M_%S")
     file =open("ValoresC_L2/Altura"+str(h)+"/ValoresC_h_"+str(h)+"_hora_"+str(hora)+"L2"+".txt","w")
-    X=Z2alt.Ordenar_z2alt(h,N)
+    X=Z2alt.Ordenar_L2(h,N)
     for i in range(0,N):
         file.write(str(X[i])+"\n")
     file.close()
