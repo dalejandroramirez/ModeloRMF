@@ -36,13 +36,77 @@ def L2(h):
         Hijos={}
 
     return(Cfin)
-            
+
+def padres(i,num_hijos):
+    """Busca los papas de el hijo i """
+    if i == 0:
+        return([0])
+    elif i==1:
+        return([0,1])
+    elif i==num_hijos-2:
+        return([num_hijos-4,num_hijos-3])
+    elif i==num_hijos-1:
+        return([num_hijos-3])
+    else:
+        return[i-2,i-1,i]
+
+def valorcalt(i,etiqueta_hijo,Papas,num_hijos):
+    """Busca el valor C mas pequeño necesario para llevar al hijo i
+    entonces primero busca el valor C necesario de los papas
+    y luego busca el minimo C necesario para llegar hasta i"""
+    ubicacion_papa=padres(i,num_hijos)
+    valorc_i=1
+    for j in ubicacion_papa:
+        if Papas[j][1]< etiqueta_hijo+Papas[j][0]:
+            valorc_i=min(Papas[j][0],valorc_i)
+        else :
+            valorc_i=min(Papas[j][1]-etiqueta_hijo,valorc_i)
+    return(valorc_i)
+
+def L2alt(h):
+    Cfin=1
+    nivel=1
+    Papas=[[0,random.uniform(0,1)]]
+    Hijos=[]
+    while nivel<h:
+        num_hijos=2*nivel +1
+        if num_hijos==3:
+            papa_etiqueta=Papas[0][1]
+            random.uniform(0,1)
+            etiquetas=[random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)]
+            hijo_1=[max(0,papa_etiqueta-etiquetas[0]),etiquetas[0]]
+            hijo_2=[max(0,papa_etiqueta-etiquetas[1]),etiquetas[1]]
+            hijo_3=[max(0,papa_etiqueta-etiquetas[2]),etiquetas[2]]
+            Hijos=[hijo_1,hijo_2,hijo_3]
+            Papas=Hijos
+            Hijos=[]
+            nivel+=1
+        else :
+            Hijos=[[0,random.uniform(0,1)] for _ in range(0,num_hijos)]
+            for i in range(num_hijos):
+                Hijos[i][0]=round(valorcalt(i,Hijos[i][1],Papas,num_hijos),3)
+            Papas=Hijos
+            Hijos=[]
+            nivel+=1
+        if nivel==h:
+            N=len(Papas)
+            for j in range(N):
+                Cfin=min(Papas[j][0],Cfin)
+    return(Cfin)
+
+def Ordenar_L2alt(h,N):
+    X=[L2alt(h) for i in range(0,N)]
+    X.sort()
+    return(X)
 
 def Ordenar_L2(h,N):
     X=[L2(h) for i in range(0,N)]
     X.sort()
     return(X)
 
+
+if __name__=="__main__":
+    pass
 
         
 
