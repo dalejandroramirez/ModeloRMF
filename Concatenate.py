@@ -15,3 +15,10 @@ if bandera==2:
         for file in files_names:
             with open(file) as infile:
                 f.write(infile.read())
+
+if bandera==3:
+    files_names=glob2.glob("ValoresC_L2alt/Altura"+str(h)+"/*.txt")
+    with open("ValoresC_L2alt_h"+str(h)+"concte.txt","w") as f:
+        for file in files_names:
+            with open(file) as infile:
+                f.write(infile.read())
