@@ -44,14 +44,17 @@ def Grafica_Acumulado(nombre_archivo,h,color):
 
 if __name__=='__main__':
     
-    #Grafica_Acumulado('ValoresCheap/ValoresC10000d2concte.txt',"10000 heap","g")
-    #Grafica_Acumulado('ValoresCheap/ValoresC100d2concte.txt',"100 heap","b")
-    #Grafica_Acumulado('ValoresCheap/ValoresC1000d2concte.txt',"1000 heap d2","g")
+    Grafica_Acumulado('ValoresCheap/ValoresC500d2concte.txt',"500 heap","g")
+    Grafica_Acumulado('ValoresCheap/ValoresC2000d2concte.txt',"2000 heap","b")
+    Grafica_Acumulado('ValoresCheap/ValoresC1000d2concte.txt',"1000 heap d2","r")
     #Grafica_Acumulado('ValoresCheap/ValoresC1000d3concte.txt',"1000 heap d3","r")
     #Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h500concte.txt',500,"g")
     #Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h1000concte.txt',1000,"r")
-    #Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h100concte.txt',100,"b")
-    Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h100concte.txt',100,"b")
-    Grafica_Acumulado('ValoresC_L2alt/Altura1000/ValoresC_h_1000_hora_09_30_15L2.txt',1000,"r")
+    #Grafica_Acumulado('ValoresC_L2/ValoresC_L2_h2000concte.txt',2000,"b")
+    #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h100concte.txt',100,"b")
+    #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h500concte.txt',500,"b")
+    #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt',1000,"r")
+    #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt',2000,"g")
+    #Grafica_Acumulado('ValoresC_L2alt/Altura1000/ValoresC_h_1000_hora_09_30_15L2.txt',1000,"r")
 
     plt.show()

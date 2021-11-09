@@ -1,6 +1,6 @@
 import glob2
 import os
-bandera=int(input("ingresa 1 si es el arbol 2 si es L2"))
+bandera=int(input("ingresa 1 si es el arbol 2 si es L2 y 3 si es L2alt"))
 h=input("Ingrese la altura:")
 if bandera==1:
     d=input("Ingrese el numero de hijos: ")
