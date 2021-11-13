@@ -40,42 +40,22 @@ def Grafica_Acumulado(nombre_archivo,h,color):
     plt.legend()
 
 
+
 def Graficar(nombre_archivos,Etiqueta):
-    fig=plt.figure(figsize=(5,5))
-    
-    #plt.axes([10,10,10,10])
+    fig=plt.figure(figsize=(4,4))
+    #plt.axes([3,0.55,0.3,0.3])
     fig.tight_layout()
-    colores=["blue","green","red","black"]
-    i=0
+    colores=["blue","green","red"]
     ax=plt.subplot(1,1,1)
     for j in range(0,3):
-        x,y=Probabilidad_percolacion(nombre_archivos[i][j])
+        x,y=Probabilidad_percolacion(nombre_archivos[0][j])
         ax.plot(x,y,color=colores[j])
-        ax.grid(True)
-            
-        if i==0:
-            c=0.21
-            ax.set_title("Modelo RMF")
-            #ax.set_xlabel("Valor C",)
-            plt.legend(['Altura 500','Altura 1000','Altura 2000'])
-        elif i==1:
-            c=0.13
-        elif i== 2:
-            c=0.20
-        elif i==3:
-            c=0.32
-        ax.set_ylabel("$\Theta_{RMF}($"+str(Etiqueta[i])+")")
-        #ax.xaxis.set_ticks([c])
-        #ax.xaxis.set_ticklabels(['$Valorc=$'+str(c)])
-        #ax.yaxis.set_ticks([0,1])
-        #ax.yaxis.set_ticklabels([0,1])
-        #plt.xlim(0,0.35)  
-        plt.ylim(0,0.2) 
-        #ax.set_title(label=Etiqueta[i]) 
-
-    
-    
-
+    plt.legend({'Altura 500','Altura 1000','Altura 2000'})
+    plt.xlim(0,0.35)  
+    plt.ylim(0,0.2)  
+    ax.set_xlabel("Valor C ")
+    ax.set_ylabel("$\Theta_{RMF}()$")
+    ax.set_title(label=Etiqueta[0])
     
     plt.show()
 
