@@ -47,7 +47,7 @@ def Graficar(nombre_archivos,Etiqueta):
     fig.tight_layout()
     colores=["blue","green","red","black"]
     i=0
-    ax=plt.subplot(1,1,i+1)
+    ax=plt.subplot(1,1,1)
     for j in range(0,3):
         x,y=Probabilidad_percolacion(nombre_archivos[i][j])
         ax.plot(x,y,color=colores[j])
@@ -95,7 +95,7 @@ if __name__=='__main__':
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt',2000,"g")
     Etiqueta=["$2$-arry","$3$-arry","$\mathcal{L}_2^{alt}$","$\mathcal{L}_2$"]
     valorecd2=["ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
-    nombre_archivos=[valorcd2,
+    nombre_archivos=[valorecd2,
     ["ValoresCheap/ValoresC100d3concte.txt","ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt"],
     ["ValoresC_L2alt/ValoresC_L2alt_h500concte.txt","ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt","ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt"]
     ,["ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]]
