@@ -39,22 +39,22 @@ def Grafica_Acumulado(nombre_archivo,h,color):
     plt.legend()
 
 
+
 def Graficar(nombre_archivos,Etiqueta):
-    fig=plt.figure(figsize=(12,4))
+    fig=plt.figure(figsize=(4,4))
     #plt.axes([3,0.55,0.3,0.3])
     fig.tight_layout()
     colores=["blue","green","red"]
-    for i in range(0,3):
-        ax=plt.subplot(1,3,i+1)
-        for j in range(0,3):
-            x,y=Probabilidad_percolacion(nombre_archivos[i][j])
-            ax.plot(x,y,color=colores[j])
-        plt.legend({'Altura 500','Altura 1000','Altura 2000'})
-        plt.xlim(0,0.35)  
-        plt.ylim(0,0.2)  
-        ax.set_xlabel("Valor C")
-        ax.set_ylabel("Probabilidades")
-        ax.set_title(label=Etiqueta[i])
+    ax=plt.subplot(1,1,1)
+    for j in range(0,3):
+        x,y=Probabilidad_percolacion(nombre_archivos[0][j])
+        ax.plot(x,y,color=colores[j])
+    plt.legend({'Altura 500','Altura 1000','Altura 2000'})
+    plt.xlim(0,0.35)  
+    plt.ylim(0,0.2)  
+    ax.set_xlabel("Valor C ")
+    ax.set_ylabel("$\Theta_{RMF}()$")
+    ax.set_title(label=Etiqueta[0])
     
     plt.show()
 
