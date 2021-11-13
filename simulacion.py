@@ -7,6 +7,7 @@ Created on Tue Sep  7 09:28:04 2021
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib import gridspec
 
 #plt.plot(unique,counts)
 #'ValoresC1000.txt'
@@ -40,21 +41,41 @@ def Grafica_Acumulado(nombre_archivo,h,color):
 
 
 def Graficar(nombre_archivos,Etiqueta):
-    fig=plt.figure(figsize=(12,4))
-    #plt.axes([3,0.55,0.3,0.3])
+    fig=plt.figure(figsize=(5,5))
+    
+    #plt.axes([10,10,10,10])
     fig.tight_layout()
-    colores=["blue","green","red"]
-    for i in range(0,3):
-        ax=plt.subplot(1,3,i+1)
-        for j in range(0,3):
-            x,y=Probabilidad_percolacion(nombre_archivos[i][j])
-            ax.plot(x,y,color=colores[j])
-        plt.legend({'Altura 500','Altura 1000','Altura 2000'})
-        plt.xlim(0,0.35)  
-        plt.ylim(0,0.2)  
-        ax.set_xlabel("Valor C")
-        ax.set_ylabel("Probabilidades")
-        ax.set_title(label=Etiqueta[i])
+    colores=["blue","green","red","black"]
+    i=0
+    ax=plt.subplot(1,1,i+1)
+    for j in range(0,3):
+        x,y=Probabilidad_percolacion(nombre_archivos[i][j])
+        ax.plot(x,y,color=colores[j])
+        ax.grid(True)
+            
+        if i==0:
+            c=0.21
+            ax.set_title("Modelo RMF")
+            #ax.set_xlabel("Valor C",)
+            plt.legend(['Altura 500','Altura 1000','Altura 2000'])
+        elif i==1:
+            c=0.13
+        elif i== 2:
+            c=0.20
+        elif i==3:
+            c=0.32
+        ax.set_ylabel("$\Theta_{RMF}($"+str(Etiqueta[i])+")")
+        #ax.xaxis.set_ticks([c])
+        #ax.xaxis.set_ticklabels(['$Valorc=$'+str(c)])
+        #ax.yaxis.set_ticks([0,1])
+        #ax.yaxis.set_ticklabels([0,1])
+        #plt.xlim(0,0.35)  
+        plt.ylim(0,0.2) 
+        #ax.set_title(label=Etiqueta[i]) 
+
+    
+    
+
     
     plt.show()
 
@@ -72,8 +93,10 @@ if __name__=='__main__':
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h500concte.txt',500,"b")
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt',1000,"r")
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt',2000,"g")
-    Etiqueta=["2-arry","L2","L2alt"]
-    nombre_archivos=[["ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"],
+    Etiqueta=["$2$-arry","$3$-arry","$\mathcal{L}_2^{alt}$","$\mathcal{L}_2$"]
+    valorecd2=["ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
+    nombre_archivos=[valorcd2,
+    ["ValoresCheap/ValoresC100d3concte.txt","ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt"],
     ["ValoresC_L2alt/ValoresC_L2alt_h500concte.txt","ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt","ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt"]
     ,["ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]]
     Graficar(nombre_archivos,Etiqueta)
