@@ -7,6 +7,7 @@ Created on Tue Sep  7 09:28:04 2021
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib import gridspec
 
 #plt.plot(unique,counts)
 #'ValoresC1000.txt'
@@ -72,8 +73,10 @@ if __name__=='__main__':
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h500concte.txt',500,"b")
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt',1000,"r")
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt',2000,"g")
-    Etiqueta=["2-arry","L2","L2alt"]
-    nombre_archivos=[["ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"],
+    Etiqueta=["$2$-arry","$3$-arry","$\mathcal{L}_2^{alt}$","$\mathcal{L}_2$"]
+    valorecd2=["ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
+    nombre_archivos=[valorecd2,
+    ["ValoresCheap/ValoresC100d3concte.txt","ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt"],
     ["ValoresC_L2alt/ValoresC_L2alt_h500concte.txt","ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt","ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt"]
     ,["ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]]
     Graficar(nombre_archivos,Etiqueta)
