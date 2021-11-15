@@ -53,8 +53,8 @@ def Graficar(nombre_archivos,Etiqueta):
     plt.xlim(0,0.35)  
     plt.ylim(0,0.2)  
     ax.set_xlabel("Valor C ")
-    ax.set_ylabel("$\Theta_{RMF}()$")
-    ax.set_title(label=Etiqueta[0])
+    ax.set_ylabel("$\Theta_{RMF}($"+str(Etiqueta[1])+")")
+    #ax.set_title()
     
     plt.show()
 
