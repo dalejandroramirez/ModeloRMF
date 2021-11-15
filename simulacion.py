@@ -45,17 +45,18 @@ def Graficar(nombre_archivos,Etiqueta):
     fig=plt.figure(figsize=(4,4))
     #plt.axes([3,0.55,0.3,0.3])
     fig.tight_layout()
-    colores=["blue","green","red"]
+    colores=["blue","green","red","black","red"]
+    i=3
     ax=plt.subplot(1,1,1)
-    for j in range(0,3):
-        x,y=Probabilidad_percolacion(nombre_archivos[0][j])
+    for j in range(0,4):
+        x,y=Probabilidad_percolacion(nombre_archivos[i][j])
         ax.plot(x,y,color=colores[j])
-    plt.legend({'Altura 500','Altura 1000','Altura 2000'})
-    plt.xlim(0,0.35)  
+    plt.legend(['Altura 250','Altura 500','Altura 1000','Altura 2000'])
+    plt.xlim(0.2,0.60)  
     plt.ylim(0,0.2)  
     ax.set_xlabel("Valor C ")
-    ax.set_ylabel("$\Theta_{RMF}($"+str(Etiqueta[1])+")")
-    #ax.set_title()
+    ax.set_ylabel("$\Theta_{RMF}()$")
+    ax.set_title(label=Etiqueta[i])
     
     plt.show()
 
@@ -74,10 +75,10 @@ if __name__=='__main__':
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt',1000,"r")
     #Grafica_Acumulado('ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt',2000,"g")
     Etiqueta=["$2$-arry","$3$-arry","$\mathcal{L}_2^{alt}$","$\mathcal{L}_2$"]
-    valorecd2=["ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
-    nombre_archivos=[valorecd2,
-    ["ValoresCheap/ValoresC100d3concte.txt","ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt"],
-    ["ValoresC_L2alt/ValoresC_L2alt_h500concte.txt","ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt","ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt"]
-    ,["ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]]
+    valorescd2=["ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
+    valorescd3=["ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt"]
+    valorescL2=["ValoresC_L2/ValoresC_L2_h250concte.txt","ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]
+    valorescL2alt=["ValoresC_L2alt/ValoresC_L2alt_h250concte.txt","ValoresC_L2alt/ValoresC_L2alt_h500concte.txt","ValoresC_L2alt/ValoresC_L2alt_h1000concte.txt","ValoresC_L2alt/ValoresC_L2alt_h2000concte.txt"]
+    nombre_archivos=[valorescd2,valorescd3,valorescL2alt,valorescL2]
     Graficar(nombre_archivos,Etiqueta)
     #plt.show()
