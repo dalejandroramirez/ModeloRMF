@@ -9,7 +9,8 @@ import time
 import random
 class nodo:
     def __init__(self,nivel,c):
-        nodo.etiqueta=np.random.uniform(0,1,1)[0]
+        nodo.etiqueta=np.random.normal(0,1,1)[0]
+        #nodo.etiqueta=np.random.uniform(0,1,1)[0]
         nodo.altura=nivel
         nodo.valorc=c
     def proliferar(self,d):
@@ -17,7 +18,7 @@ class nodo:
         hijos=[nodo(0,0) for i in range(d)]
 
         for nd_hijo in hijos:
-            nd_hijo.etiqueta=random.random()
+            nd_hijo.etiqueta=np.random.normal(0,1)
             nd_hijo.valor_c=0
             nd_hijo.altura=self.altura+1
         return hijos
