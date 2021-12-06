@@ -12,13 +12,15 @@ def valorc(nd,etiqueta_hijo):
 
 def L2(h):
     Cfin=1
+    varianza=1
+    media=0
     h_actual=0
-    Papa={(0,0):(0,random.uniform(0,1))}
+    Papa={(0,0):(0,np.random.normal(media,varianza))}
     Hijos={}
     while h_actual!=h:
         h_actual+=1
         for i in range(0,h_actual+1):
-            etiqueta=random.uniform(0,1)
+            etiqueta=np.random.normal(media,varianza)
             if i==0 :
                 ValorC=round(valorc(Papa[(0,h_actual-1)],etiqueta),3)
                 Hijos[(0,h_actual)]=(ValorC,etiqueta)
@@ -66,14 +68,14 @@ def valorcalt(i,etiqueta_hijo,Papas,num_hijos):
 def L2alt(h):
     Cfin=1
     nivel=1
-    Papas=[[0,random.uniform(0,1)]]
+    Papas=[[0,np.random.normal(0,1)]]
     Hijos=[]
     while nivel<h:
         num_hijos=2*nivel +1
         if num_hijos==3:
             papa_etiqueta=Papas[0][1]
-            random.uniform(0,1)
-            etiquetas=[random.uniform(0,1),random.uniform(0,1),random.uniform(0,1)]
+            np.random.normal(0,1)
+            etiquetas=[np.random.normal(0,1),np.random.normal(0,1),np.random.normal(0,1)]
             hijo_1=[max(0,papa_etiqueta-etiquetas[0]),etiquetas[0]]
             hijo_2=[max(0,papa_etiqueta-etiquetas[1]),etiquetas[1]]
             hijo_3=[max(0,papa_etiqueta-etiquetas[2]),etiquetas[2]]
@@ -82,7 +84,7 @@ def L2alt(h):
             Hijos=[]
             nivel+=1
         else :
-            Hijos=[[0,random.uniform(0,1)] for _ in range(0,num_hijos)]
+            Hijos=[[0,np.random.normal(0,1)] for _ in range(0,num_hijos)]
             for i in range(num_hijos):
                 Hijos[i][0]=round(valorcalt(i,Hijos[i][1],Papas,num_hijos),3)
             Papas=Hijos
@@ -105,8 +107,8 @@ def Ordenar_L2(h,N):
     return(X)
 
 
-if __name__=="__main__":
-    pass
+#if __name__=="__main__":
+#   print(L2(10))
 
         
 
