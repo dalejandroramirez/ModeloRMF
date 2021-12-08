@@ -46,7 +46,7 @@ def Graficar(nombre_archivos,Etiqueta):
     #plt.axes([3,0.55,0.3,0.3])
     fig.tight_layout()
     colores=["blue","green","red","black","orange"]
-    i=4
+    i=5
 
     ax=plt.subplot(1,1,1)
     for j in range(0,5):
