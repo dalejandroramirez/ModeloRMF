@@ -42,11 +42,11 @@ def Grafica_Acumulado(nombre_archivo,h,color):
 
 
 def Graficar(nombre_archivos,Etiqueta):
-    fig=plt.figure(figsize=(4,8))
+    fig=plt.figure(figsize=(6,8))
     #plt.axes([3,0.55,0.3,0.3])
     fig.tight_layout()
     colores=["blue","green","red","black","orange"]
-    i=0
+    i=3
 
     ax=plt.subplot(1,1,1)
     for j in range(0,5):
@@ -63,15 +63,16 @@ def Graficar(nombre_archivos,Etiqueta):
     plt.legend(['125','250','500','1000','2000'])
     plt.xlim(0.0,0.27)  
     plt.ylim(0,0.08)  
-    ax.set_xlabel("$C_{min}$ ",fontsize=15)
-    ax.set_ylabel("$\Theta_{RMF}($"+str(Etiqueta[i])+")",fontsize=15)
+    ax.set_xlabel("$c_{min}$ ",fontsize=15)
+    ax.set_ylabel("$\Theta_{RMF}\langle$"+str(Etiqueta[i])+",U(0,1),c" "$ \\rangle$ ",fontsize=15)
     plt.grid(color='k', linestyle='dotted', linewidth=1)
     plt.show()
 
 
 if __name__=='__main__':
     
-    Etiqueta=["$2$-arry","$3$-arry","$\mathcal{L}_2^{alt}$","$\mathcal{L}_2$"]
+    Etiqueta=["$\mathbb{T}_2$","$\mathbb{T}_3$","$\mathbb{L}_2^{alt}$","$\mathbb{L}_2$"]
+
     valorescd2=["ValoresCheap/ValoresC125d2concte.txt","ValoresCheap/ValoresC250d2concte.txt","ValoresCheap/ValoresC500d2concte.txt","ValoresCheap/ValoresC1000d2concte.txt","ValoresCheap/ValoresC2000d2concte.txt"]
     valorescd3=["ValoresCheap/ValoresC125d3concte.txt","ValoresCheap/ValoresC250d3concte.txt","ValoresCheap/ValoresC500d3concte.txt","ValoresCheap/ValoresC1000d3concte.txt","ValoresCheap/ValoresC2000d3concte.txt"]
     valorescL2=["ValoresC_L2/ValoresC_L2_h125concte.txt","ValoresC_L2/ValoresC_L2_h250concte.txt","ValoresC_L2/ValoresC_L2_h500concte.txt","ValoresC_L2/ValoresC_L2_h1000concte.txt","ValoresC_L2/ValoresC_L2_h2000concte.txt"]
