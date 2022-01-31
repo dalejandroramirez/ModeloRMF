@@ -7,59 +7,59 @@ Created on Wed Sep  8 18:44:27 2021
 import random
 from collections import deque
 import numpy as np
+
 class nodo():
-    
+
+
     def __init__(self,ubicacion,c,etiqueta):
-        self.ubicacion=ubicacion
-        self.ValorC=c
-        self.etiqueta=etiqueta
-        self.proliferar=False
+        self.ubicacion = ubicacion
+        self.ValorC = c
+        self.etiqueta = etiqueta
+        self.proliferar = False
 
 def RMF_in_Z2mas(d,h):
-    visitados={}
-    valoresc={(0,0):0}
-    cont=1
-    papa=nodo([0,0],0,np.random.uniform(0,1,1)[0])
-    s=deque([papa])
-    Cfin=1
-    while len(s)!=0:
+    visitados = {}
+    valoresc = {(0,0):0}
+    cont = 1
+    papa = nodo([0,0],0,np.random.uniform(0,1,1)[0])
+    s = deque([papa])
+    Cfin = 1
+    while len(s) != 0:
         nd=s.pop()
-        if nd.ValorC>Cfin:
+        if nd.ValorC > Cfin:
             continue
         if tuple(nd.ubicacion) not in visitados:
-            visitados[tuple(nd.ubicacion)]=nd.etiqueta
-        ubicacionup=[nd.ubicacion[0],nd.ubicacion[1]+1]
-        ubicacionrigth=[nd.ubicacion[0]+1,nd.ubicacion[1]]
-        up,rigth=tuple(ubicacionup),tuple(ubicacionrigth)
+            visitados[tuple(nd.ubicacion)] = nd.etiqueta
+        ubicacionup = [nd.ubicacion[0],nd.ubicacion[1]+1]
+        ubicacionrigth = [nd.ubicacion[0]+1,nd.ubicacion[1]]
+        up,rigth = tuple(ubicacionup),tuple(ubicacionrigth)
         if up in visitados:
-            hijoup=nodo(ubicacionup,nd.ValorC,visitados[up])
+            hijoup = nodo(ubicacionup,nd.ValorC,visitados[up])
         else :
-            visitados[up]=np.random.uniform(0,1,1)[0]
-            hijoup=nodo(ubicacionup,nd.ValorC,visitados[up])
+            visitados[up] = np.random.uniform(0,1,1)[0]
+            hijoup = nodo(ubicacionup,nd.ValorC,visitados[up])
         if rigth in visitados:
-            hijorigth=nodo(ubicacionrigth,nd.ValorC,visitados[rigth])
+            hijorigth = nodo(ubicacionrigth,nd.ValorC,visitados[rigth])
         else :
-            visitados[rigth]=np.random.uniform(0,1,1)[0]
-            hijorigth=nodo(ubicacionrigth,nd.ValorC,visitados[rigth])
-        if nd.ValorC<round(nd.etiqueta-hijoup.etiqueta,3):
-            hijoup.ValorC=round(nd.etiqueta - hijoup.etiqueta,3)
+            visitados[rigth] = np.random.uniform(0,1,1)[0]
+            hijorigth = nodo(ubicacionrigth,nd.ValorC,visitados[rigth])
+        if nd.ValorC < round(nd.etiqueta - hijoup.etiqueta,3):
+            hijoup.ValorC = round(nd.etiqueta - hijoup.etiqueta,3)
         else:
-            hijoup.ValorC=round(hijoup.ValorC,3)
-        if nd.ValorC<round(nd.etiqueta-hijorigth.etiqueta,3):
-                    hijorigth.ValorC=round(nd.etiqueta - hijorigth.etiqueta,3)
+            hijoup.ValorC = round(hijoup.ValorC,3)
+        if nd.ValorC < round(nd.etiqueta-hijorigth.etiqueta,3):
+                    hijorigth.ValorC = round(nd.etiqueta - hijorigth.etiqueta,3)
         else:
-            hijorigth.ValorC=round(hijorigth.ValorC,3)
-        if hijoup.ValorC<Cfin:
-            if (hijoup.ubicacion[0]+hijoup.ubicacion[1]==h):
-                Cfin=min(hijoup.ValorC,Cfin,hijorigth.ValorC)
+            hijorigth.ValorC = round(hijorigth.ValorC,3)
+        if hijoup.ValorC < Cfin:
+            if (hijoup.ubicacion[0] + hijoup.ubicacion[1] == h):
+                Cfin = min(hijoup.ValorC,Cfin,hijorigth.ValorC)
                 continue
             s.append(hijoup)
             s.append(hijorigth)
-            cont+=2
-
-            print(len(s),cont)
+            cont += 2
     return(len(visitados))
-    #return(Cfin)
+
         
 if __name__=="__main__":
     print(RMF_in_Z2mas(2,1000))
