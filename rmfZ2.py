@@ -64,45 +64,38 @@ def RMF_in_Z2mas(d,h):
 if __name__=="__main__":
     print(RMF_in_Z2mas(2,1000))
 
-    
-
-    
-    
-
-
 def e(i,d):
-    ei=np.zeros(d)
-    ei[i]=1
+    ei = np.zeros(d)
+    ei[i] = 1
     return(ei)
 
-
 def RMF_in_Zdmas(d,h):
-    visitados={}
+    visitados = {}
     random.seed(0)
-    papa=nodo(np.zeros(d),0,np.random.uniform(0,1,1)[0])
-    s=deque([papa])
-    Cfin=1
-    while len(s)!=0:
+    papa = nodo(np.zeros(d),0,np.random.uniform(0,1,1)[0])
+    s = deque([papa])
+    Cfin = 1
+    while len(s) != 0:
         nd=s.pop()
-        if nd.ValorC>Cfin:
+        if nd.ValorC > Cfin:
             continue
         if tuple(nd.ubicacion) not in visitados:
-            visitados[tuple(nd.ubicacion)]=nd.etiqueta
+            visitados[tuple(nd.ubicacion)] = nd.etiqueta
         for i in range(d):
-            ubicacion_i=nd.ubicacion+e(i,d)
+            ubicacion_i = nd.ubicacion + e(i,d)
             if tuple(ubicacion_i) in visitados:
-                hijo_i=nodo(ubicacion_i,nd.ValorC,visitados[tuple(ubicacion_i)])
+                hijo_i = nodo(ubicacion_i, nd.ValorC, visitados[tuple(ubicacion_i)])
             else:
-                visitados[tuple(ubicacion_i)]=np.random.uniform(0,1,1)[0]
-                hijo_i=nodo(ubicacion_i,nd.ValorC,visitados[tuple(ubicacion_i)])
+                visitados[tuple(ubicacion_i)] = np.random.uniform(0,1,1)[0]
+                hijo_i = nodo(ubicacion_i, nd.ValorC, visitados[tuple(ubicacion_i)])
     
-            if nd.ValorC<round(nd.etiqueta-hijo_i.etiqueta,3):
-                hijo_i.ValorC=round(nd.etiqueta - hijo_i.etiqueta,3)
+            if nd.ValorC < round(nd.etiqueta - hijo_i.etiqueta, 3):
+                hijo_i.ValorC = round(nd.etiqueta - hijo_i.etiqueta, 3)
             else:
-                hijo_i.ValorC=round(hijo_i.ValorC,3)
-            if hijo_i.ValorC<Cfin:
-                if sum(hijo_i.ubicacion)==h:
-                    Cfin=min(hijo_i.ValorC,Cfin)
+                hijo_i.ValorC = round(hijo_i.ValorC, 3)
+            if hijo_i.ValorC < Cfin:
+                if sum(hijo_i.ubicacion) == h:
+                    Cfin = min(hijo_i.ValorC, Cfin)
                     continue
                 s.append(hijo_i)
     return(Cfin)
