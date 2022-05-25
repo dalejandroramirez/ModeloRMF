@@ -2,20 +2,17 @@
 """
 Created on Sat Sep  4 09:53:09 2021
 
-@author: digin
+@author: Daniel Alejandro Ramirez Gomez
 """
-import time
 import numpy as np
 from collections import deque
 
-def Porcentaje_accesibles_nary_RMF_c(d,h):
-    
+def Minimo_valor_c_arboles_regulares(d,h):
         """
-        Vamos a modelar un proceso RMF en un d-arry con d hijos
-        el cual tendra una altura h, se hara una busqueda
-        en profundidad encontrando el c minimo de tal manera que se alcanza
-        a percolar y este c minimo se le hace un redondeo de 3 cifras
-        significativas para disminuir el tiempo de ejecucion """
+        Vamos a modelar un proceso RMF en un arbo regular con d hijos
+        y altura h. haremos busqueda
+        en profundidad encontrando el c minimo de tal manera que un
+        sea accesible hasta altura h """
 
         class nodo:
 
@@ -47,7 +44,7 @@ def Porcentaje_accesibles_nary_RMF_c(d,h):
         return(Cfin)
 
 def Ordenar(d,h,N):
-    X = [Porcentaje_accesibles_nary_RMF_c(d, h) for i in range(0,N)]
+    X = [Minimo_valor_c_arboles_regulares(d, h) for i in range(0,N)]
     X.sort()
     return(X)
 
@@ -55,4 +52,4 @@ def Ordenar(d,h,N):
 if __name__=='__main__':
     '''aqui ejecutare los programas'''
     print("El valor C minimo de percolacion es =", end=' ')
-    print(Porcentaje_accesibles_nary_RMF_c(2,10))
+    print(Minimo_valor_c_arboles_regulares(2,10))

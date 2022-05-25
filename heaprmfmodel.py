@@ -10,7 +10,6 @@ import random
 
 class nodo:
 
-
     def __init__(self,nivel,c):
         nodo.etiqueta = np.random.uniform(0,1,1)[0]
         nodo.altura = nivel
@@ -101,7 +100,8 @@ class My_Heap:
                 if self.comparar_llaves(self.hijo_izquierdo(i),i):
                     self.intercambiar(i,self.hijo_izquierdo(i))
                     self.arreglar_desde_arriba(self.hijo_izquierdo(i))
-            elif self.comparar_llaves(self.hijo_izquierdo(i),self.hijo_derecho(i)):
+            elif self.comparar_llaves(self.hijo_izquierdo(i),
+                                        self.hijo_derecho(i)):
                  if self.comparar_llaves(self.hijo_izquierdo(i),i):
                     self.intercambiar(i,self.hijo_izquierdo(i))
                     self.arreglar_desde_arriba(self.hijo_izquierdo(i))
@@ -119,13 +119,14 @@ class My_Heap:
         return raiz
 
 
-def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
+def Minimo_valor_c_arboles_regulares_Heap(d,h):
         """
         Vamos a modelar un proceso RMF en un d-arry con d hijos
-        el cual tendra una altura h, se hara una busqueda
-        en profundidad encontrando el c minimo de tal manera que se alcanza
-        a percolar y este c minimo se le hace un redondeo de 3 cifras
-        significativas para disminuir el tiempo de ejecucion """
+        el cual tendra una altura h. Utilizaremos el objeto My_Heap
+        como estructura de datos para encontrando el c minimo de tal
+        un camino de longitud h sea accesible. Este c minimo se le hace un 
+        redondeo de 3 cifras significativas para disminuir el tiempo 
+        de ejecucion """
 
         s = My_Heap()
         papa = nodo(0,0)
@@ -151,11 +152,11 @@ def Porcentaje_accesibles_nary_RMF_c_Heap(d,h):
         return(Cfin)
 
 def Ordenar_Heap(d,h,N):
-    X = [Porcentaje_accesibles_nary_RMF_c_Heap(d,h) for i in range(0,N)]
+    X = [Minimo_valor_c_arboles_regulares_Heap(d,h) for i in range(0,N)]
     X.sort()
     return(X)
 
 
 #if __name__=='__main__':
 #    print("El valor C minimo de percolacion es =", end=' ')
-#    print(Porcentaje_accesibles_nary_RMF_c_Heap(2,3))
+#    print(Minimo_valor_c_arboles_regulares_Heap(2,3))
