@@ -4,6 +4,7 @@ Created on Sat Sep  4 09:53:09 2021
 
 @author: Daniel Alejandro Ramirez Gomez
 """
+import time
 import numpy as np
 from collections import deque
 
@@ -48,8 +49,27 @@ def Ordenar(d,h,N):
     X.sort()
     return(X)
 
+def tiempo_ejecucion(h,N):
+    count = 0 
+    for _ in range(0,N):
+        inicio = time.time()
+        Minimo_valor_c_arboles_regulares(2,h)
+        time.sleep(1)
+        fin = time.time()
+        count += fin-inicio
+    return(count/N)
 
 if __name__=='__main__':
     '''aqui ejecutare los programas'''
-    print("El valor C minimo de percolacion es =", end=' ')
-    print(Minimo_valor_c_arboles_regulares(2,10))
+    #print("El valor C minimo de percolacion es =", end=' ')
+    #print(Minimo_valor_c_arboles_regulares(2,10))
+
+    print(tiempo_ejecucion(10,10))
+    print(tiempo_ejecucion(20,10))
+    print(tiempo_ejecucion(40,10))
+    print(tiempo_ejecucion(80,10))
+    print(tiempo_ejecucion(160,10))
+
+
+
+

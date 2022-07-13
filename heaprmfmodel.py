@@ -157,6 +157,25 @@ def Ordenar_Heap(d,h,N):
     return(X)
 
 
-#if __name__=='__main__':
-#    print("El valor C minimo de percolacion es =", end=' ')
-#    print(Minimo_valor_c_arboles_regulares_Heap(2,3))
+def tiempo_ejecucionHeap(h,N):
+    count = 0 
+    for _ in range(0,N):
+        inicio = time.time()
+        Minimo_valor_c_arboles_regulares_Heap(2,h)
+        time.sleep(1)
+        fin = time.time()
+        count += fin-inicio
+    return(count/N)
+
+
+
+if __name__ == '__main__':
+    # print("El valor C minimo de percolacion es =", end=' ')
+    # print(Minimo_valor_c_arboles_regulares_Heap(2,10))
+    #print(tiempo_ejecucion(250,10))
+    print(tiempo_ejecucionHeap(125,10))
+    print(tiempo_ejecucionHeap(250,10))
+    print(tiempo_ejecucionHeap(500,10))
+    print(tiempo_ejecucionHeap(1000,10))
+    print(tiempo_ejecucionHeap(2000,10))
+

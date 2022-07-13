@@ -1,5 +1,6 @@
 import numpy as np
 import random
+import time
 
 
 def valorc(nd,etiqueta_hijo):
@@ -107,9 +108,36 @@ def Ordenar_L2(h,N):
     X.sort()
     return(X)
 
+def tiempo_ejecucionL2(h,N):
+
+    count = 0 
+    for _ in range(0,N):
+        inicio = time.time()
+        L2(h)
+        time.sleep(1)
+        fin = time.time()
+        count += fin-inicio
+    return(count/N)
+
+def tiempo_ejecucionL2alt(h,N):
+
+    count = 0 
+    for _ in range(0,N):
+        inicio = time.time()
+        L2alt(h)
+        time.sleep(1)
+        fin = time.time()
+        count += fin-inicio
+    return(count/N)
+
 
 if __name__=="__main__":
-    pass
+    print(tiempo_ejecucionL2alt(10,10))
+    print(tiempo_ejecucionL2alt(20,10))
+    print(tiempo_ejecucionL2alt(40,10))
+    print(tiempo_ejecucionL2alt(80,10))
+    print(tiempo_ejecucionL2alt(160,10))
+
 
         
 
