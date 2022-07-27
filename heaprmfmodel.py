@@ -173,9 +173,6 @@ if __name__ == '__main__':
     # print("El valor C minimo de percolacion es =", end=' ')
     # print(Minimo_valor_c_arboles_regulares_Heap(2,10))
     #print(tiempo_ejecucion(250,10))
-    print(tiempo_ejecucionHeap(125,10))
-    print(tiempo_ejecucionHeap(250,10))
-    print(tiempo_ejecucionHeap(500,10))
-    print(tiempo_ejecucionHeap(1000,10))
-    print(tiempo_ejecucionHeap(2000,10))
+    print(tiempo_ejecucionHeap(500,5))
+    #print(tiempo_ejecucionHeap(2000,5))
 

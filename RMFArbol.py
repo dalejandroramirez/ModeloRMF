@@ -63,13 +63,10 @@ if __name__=='__main__':
     '''aqui ejecutare los programas'''
     #print("El valor C minimo de percolacion es =", end=' ')
     #print(Minimo_valor_c_arboles_regulares(2,10))
-
-    print(tiempo_ejecucion(10,10))
-    print(tiempo_ejecucion(20,10))
-    print(tiempo_ejecucion(40,10))
-    print(tiempo_ejecucion(80,10))
-    print(tiempo_ejecucion(160,10))
+    print(tiempo_ejecucion(500,5))
+    print(tiempo_ejecucion(1000,5))
+    print(tiempo_ejecucion(2000,5))
 
 
 
-
+#1.29 1.18 1.54 2.17 2.25 1.59 1.74 2.73 3.0 HEAP

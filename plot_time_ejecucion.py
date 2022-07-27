@@ -17,17 +17,26 @@ def curva_heap(h):
 def curva_arbol(h):
    return 0.000006*h**2+0.002011*h+0.919197
 
+
+def curva_heap(h):
+    return 0.0009*h+1.35
+
+def curva_arbol(h):
+   return 0.000005*h**2+0.003151*h+0.5274
+
+
+
 def tiempo_ejecucion_arbol():
 
-    X = [125,250,500,1000,2000]
+    X = [100, 200, 300, 400, 500, 600, 700, 1000, 2000]
 
     X_bajo = [10, 20, 40, 80, 160]
 
-    T_Heap = [1.348, 1.911, 1.941, 6.445, 11.849]
+    T_Heap = [1.29,1.18,1.54,2.17,2.25,1.59,1.74,2.73,3.0]
 
     T_Heap_bajo = [1.013, 1.027, 1.050, 1.141, 1.465]
 
-    T_Arbol = [1.207, 1.543, 3.275, 8.558, 26.956]
+    T_Arbol = [1.06,1.44,2.12,2.40,2.95,3.72,5.0,9.08,25.9]
 
     T_Arbol_bajo = [1.002,1.010,1.035,1.117,1.322]
 
@@ -42,7 +51,7 @@ def tiempo_ejecucion_arbol():
     plt.xlabel("Altura")
     plt.ylabel("Segundos")
     plt.title("Tiempo de Ejecución")
-    x = range(125,2000)
+    x = range(100,2000)
     plt.plot(x,[curva_heap(i) for i in x],"--", color="blue")
     plt.plot(x,[curva_arbol(i) for i in x],"--",color="orange")
     plt.show()
@@ -69,7 +78,7 @@ def tiempo_ejecucion_L2():
     plt.plot(x,[curva_L2alt(i) for i in x],"--",color="orange")
     plt.show()
 
-print(tiempo_ejecucion_L2())
+#print(tiempo_ejecucion_L2())
 print(tiempo_ejecucion_arbol())
 
 #1.207 1.543 3.275 8.558 26.956 arbol
