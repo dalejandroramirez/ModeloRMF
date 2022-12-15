@@ -9,7 +9,7 @@ def Lista_valoresC_heap(d,h,N):
     necesarios para percolar usando heapmin'''
 
     hora = time.strftime("%H_%M_%S")
-    file = open("ValoresCheap/Arbol_d"+str(d)+"_h"+str(h)+"/ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+"Heap"+".txt","w")
+    file = open("ValoresCGumbel/Arbol_d"+str(d)+"_h"+str(h)+"/ValoresC_h_"+str(h)+"_d_"+str(d)+"_hora_"+str(hora)+"Heap"+".txt","w")
     X = heapRMF.Ordenar_Heap(d,h,N)
     for i in range(0,N):
         file.write(str(X[i]) + "\n")
@@ -35,7 +35,7 @@ def Lista_valoresC_L2(h,N):
     necesarios para percolar en L2'''
 
     hora = time.strftime("%H_%M_%S")
-    file = open("ValoresC_L2/Altura" + str(h) + "/ValoresC_h_" + str(h) 
+    file = open("ValoresCGumbel/ValoresC_L2/Altura" + str(h) + "/ValoresC_h_" + str(h) 
                 + "_hora_" + str(hora) + "L2" + ".txt","w")
     X = Z2alt.Ordenar_L2(h,N)
     for i in range(0,N):
@@ -49,7 +49,7 @@ def Lista_valoresC_L2alt(h,N):
     necesarios para percolar en L2'''
 
     hora = time.strftime("%H_%M_%S")
-    file = open("ValoresC_L2alt/Altura" + str(h) + "/ValoresC_h_" + str(h)
+    file = open("ValoresCGumbel/ValoresC_L2alt/Altura" + str(h) + "/ValoresC_h_" + str(h)
                 + "_hora_" + str(hora) + "L2" + ".txt","w")
     X= Z2alt.Ordenar_L2alt(h,N)
     for i in range(0,N):
